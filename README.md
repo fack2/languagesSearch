@@ -9,14 +9,16 @@
     - as a user im able to see short auto completed  list
   
 ## File structure
-    public
-        - index.html
-        - style.css
-        - script.js
-    src
-        - server.js
-        - router.js
-        - handler.js
+    - public
+      - index.html
+      - style.css
+      - script.js
+    - src
+      - server.js
+      - router.js
+      - handler.js
+    - README.md
+    - package.json
 
 ## Team
 
