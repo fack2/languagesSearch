@@ -20,9 +20,9 @@
 
 ## Team
 
-    [Rand](https://github.com/RandInaim)
-    [Yaqoot](https://github.com/yaqootturman)
-    [Yousef](https://github.com/YousefQwasmeh)
+   - [Rand](https://github.com/RandInaim)
+   - [Yaqoot](https://github.com/yaqootturman)
+   - [Yousef](https://github.com/YousefQwasmeh)
 ## Wireframe
 
  ![IMG_20190709_112838](https://user-images.githubusercontent.com/27896127/60872184-ee399780-a23c-11e9-9d12-d79c725667f6.jpg)
