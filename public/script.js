@@ -1,54 +1,40 @@
 function request(url, cb) {
-	fetch(url)
-		.then((response) => {
-			return response.json();
-		})
-		.then((data) => {
-			return cb(data);
-		});
+  fetch(url)
+    .then(response => {
+      return response.json();
+    })
+    .then(data => {
+      return cb(data);
+    });
 }
-const searchBox = document.getElementById('searchBox');
-const searchButton = document.getElementById('bu');
-searchButton.addEventListener("click",()=>{
-	// request(`/google.com/${searchBox.value}`, (aaa) => {
-	// 	console.log("5555555555555");
-	// })	
-	window.location.assign(`https://www.google.com/search?q=${searchBox.value}`)
-})
-// const a=document.querySelectorAll("a");
+const searchBox = document.getElementById("searchBox");
+const searchButton = document.getElementById("bu");
+searchButton.addEventListener("click", () => {
+  window.location.assign(`https://www.google.com/search?q=${searchBox.value}`);
+});
+searchBox.addEventListener("keyup", () => {
+  var inputValue = searchBox.value;
+  request(`/search=${inputValue}`, lang => {
+    console.log(lang);
 
-// a.addEventListener("click",()=>{
+    const langList = document.getElementById("langList");
+    langList.innerHTML = "";
+    langList.style.display = "none";
+    lang.forEach(element => {
+      langList.style.display = "block";
 
-// });
-// a.forEach((e)=>{
-// 	e.addEventListener("click",()=>{
-// 		searchBox.value=e.innerText;
-// 	})
-// })
-searchBox.addEventListener('keyup', () => {
-	var inputValue = searchBox.value;
-	request(`/search=${inputValue}`, (lang) => {
-		console.log(lang);
-
-		const langList = document.getElementById('langList');
-		langList.innerHTML = '';
-		langList.style.display = 'none';
-		lang.forEach((element) => {
-			langList.style.display = 'block';
-
-			const langItem = document.createElement('a');
-			langItem.addEventListener("click",()=>{
-				searchBox.value=langItem.innerText;
-		langList.style.display = 'none';
-
-			})
-			langItem.setAttribute('class', 'item');
-			const br = document.createElement('br');
-			const form = document.getElementById('form');
-			langItem.setAttribute('href', '#');
-			langItem.innerHTML = element.name;
-			langList.appendChild(langItem);
-			langList.appendChild(br);
-		});
-	});
+      const langItem = document.createElement("a");
+      langItem.addEventListener("click", () => {
+        searchBox.value = langItem.innerText;
+        langList.style.display = "none";
+      });
+      langItem.setAttribute("class", "item");
+      const br = document.createElement("br");
+      const form = document.getElementById("form");
+      langItem.setAttribute("href", "#");
+      langItem.innerHTML = element.name;
+      langList.appendChild(langItem);
+      langList.appendChild(br);
+    });
+  });
 });
