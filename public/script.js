@@ -8,6 +8,23 @@ function request(url, cb) {
 		});
 }
 const searchBox = document.getElementById('searchBox');
+const searchButton = document.getElementById('bu');
+searchButton.addEventListener("click",()=>{
+	// request(`/google.com/${searchBox.value}`, (aaa) => {
+	// 	console.log("5555555555555");
+	// })	
+	window.location.assign(`https://www.google.com/search?q=${searchBox.value}`)
+})
+// const a=document.querySelectorAll("a");
+
+// a.addEventListener("click",()=>{
+
+// });
+// a.forEach((e)=>{
+// 	e.addEventListener("click",()=>{
+// 		searchBox.value=e.innerText;
+// 	})
+// })
 searchBox.addEventListener('keyup', () => {
 	var inputValue = searchBox.value;
 	request(`/search=${inputValue}`, (lang) => {
@@ -20,6 +37,11 @@ searchBox.addEventListener('keyup', () => {
 			langList.style.display = 'block';
 
 			const langItem = document.createElement('a');
+			langItem.addEventListener("click",()=>{
+				searchBox.value=langItem.innerText;
+		langList.style.display = 'none';
+
+			})
 			langItem.setAttribute('class', 'item');
 			const br = document.createElement('br');
 			const form = document.getElementById('form');
