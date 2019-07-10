@@ -35,12 +35,14 @@ label {
   color: white;
 }
 .langList {
-  width: 40%;
-  border: 1px solid grey;
-  border-radius: 10px;
-  max-height: 150px;
-  overflow-y: scroll;
-  display: none;
+	width: 40%;
+	padding: 4px;
+	border: 1px solid grey;
+	border-radius: 10px;
+	max-height: 150px;
+	overflow-y: scroll;
+	display: none;
+
 }
 .item {
   color: black;
@@ -48,6 +50,9 @@ label {
   text-align: left;
   display: inline-block;
   width: 100%;
+}
+p{
+	width: 40%;
 }
 .item:hover {
   background-color: grey;
