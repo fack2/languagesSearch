@@ -4,7 +4,8 @@
     the puprpose of it is auto complete text of languages which store in json file .
 
 ## Website:
-[Auto-complete languages search](https://language-search.herokuapp.com)
+[:mag:](https://language-search.herokuapp.com)
+
 ## User journey
 
     - as a user im able to search language
