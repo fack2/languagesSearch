@@ -39,7 +39,7 @@ label {
   border: 1px solid grey;
   border-radius: 10px;
   max-height: 150px;
-  overflow: scroll;
+  overflow-y: scroll;
   display: none;
 }
 .item {
