@@ -39,10 +39,11 @@ label{
 }
 .langList {
 	width: 40%;
+	padding: 4px;
 	border: 1px solid grey;
 	border-radius: 10px;
 	max-height: 150px;
-	overflow: scroll;
+	overflow-y: scroll;
 	display: none;
 }
 .item {
@@ -51,6 +52,9 @@ label{
 	text-align: left;
 	display: inline-block;
 	width: 100%;
+}
+p{
+	width: 40%;
 }
 .item:hover {
 	background-color: grey;
