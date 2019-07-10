@@ -18,10 +18,24 @@ img {
 	position: relative;
 	margin: 0 auto;
 	text-align: center;
+
+}
+.form .seacrhButton{
+	position: absolute;
+	height: 36px;
+
+}
+.seacrhButton{
+	overflow: auto;
+
 }
 .searchBox {
 	width: 40%;
 	border-radius: 10px;
+	height: 36px;
+}
+label{
+	color: white;
 }
 .langList {
 	width: 40%;

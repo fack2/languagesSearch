@@ -7,7 +7,7 @@ const router = (request, response) => {
     homeHandler(request, response);
   } else if (url.indexOf("/search=") !== -1) {
     searchHandler(request, response, url);
-  } else if (url.indexOf(".") !== -1) {
+  }else if (url.indexOf(".") !== -1) {
     publicHandler(request, response, url);
   }
 };
