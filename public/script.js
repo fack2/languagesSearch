@@ -1,24 +1,20 @@
 function request(url, cb) {
-	fetch(url)
-		.then((response) => {
-			return response.json();
-		})
-		.then((data) => {
-			return cb(data);
-		});
+  fetch(url)
+    .then(response => {
+      return response.json();
+    })
+    .then(data => {
+      return cb(data);
+    });
 }
 const searchBox = document.getElementById('searchBox');
 const searchButton = document.getElementById('bu');
 searchButton.addEventListener("click",()=>{
-	// request(`/google.com/${searchBox.value}`, (aaa) => {
-	// 	console.log("5555555555555");
-	// })	
+
 	window.location.assign(`https://www.google.com/search?q=${searchBox.value}`)
 })
 let lan="ar";
 function ran(){
-	// request("https://baconipsum.com/api/?type=meat-and-filler", (aaa) => {
-
 	request("http://www.randomtext.me/api/lorem/ul-5/5-15", (aaa) => {
 		console.log("5555555555555");	
 		const randomText=document.getElementById("randomText");
@@ -28,25 +24,9 @@ function ran(){
 		request(`https://translate.yandex.net/api/v1.5/tr.json/translate?key=${key}&text=${randomText.innerText}&lang=la-${lan}`, (bbb) => {
 			randomText.innerText=bbb.text[0];
 		})
-		// aaa.forEach(e=>{
-		// 	randomText.innerHTML+=e+"<br>";
-
-		// })
-		// console.log(aaa);
-		
 	})	
-	// window.location.assign(`https://www.google.com/search?q=${searchBox.value}`)
 }
-// const a=document.querySelectorAll("a");
 
-// a.addEventListener("click",()=>{
-
-// });
-// a.forEach((e)=>{
-// 	e.addEventListener("click",()=>{
-// 		searchBox.value=e.innerText;
-// 	})
-// })
 searchBox.addEventListener('keyup', () => {
 	var inputValue = searchBox.value;
 	request(`/search=${inputValue}`, (lang) => {
@@ -64,15 +44,16 @@ searchBox.addEventListener('keyup', () => {
 				ran();
 				searchBox.value=langItem.innerText;
 		langList.style.display = 'none';
+    });
 
-			})
-			langItem.setAttribute('class', 'item');
-			const br = document.createElement('br');
-			const form = document.getElementById('form');
-			langItem.setAttribute('href', '#');
-			langItem.innerHTML = element.name;
-			langList.appendChild(langItem);
-			langList.appendChild(br);
-		});
-	});
+  
+      langItem.setAttribute("class", "item");
+      const br = document.createElement("br");
+      const form = document.getElementById("form");
+      langItem.setAttribute("href", "#");
+      langItem.innerHTML = element.name;
+      langList.appendChild(langItem);
+      langList.appendChild(br);
+    });
+  });
 });
