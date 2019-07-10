@@ -15,7 +15,7 @@ searchButton.addEventListener("click",()=>{
 })
 let lan="ar";
 function ran(){
-	request("http://www.randomtext.me/api/lorem/ul-5/5-15", (aaa) => {
+	request("https://www.randomtext.me/api/lorem/ul-5/5-15", (aaa) => {
 		console.log("5555555555555");	
 		const randomText=document.getElementById("randomText");
 		randomText.style.display = 'none';
