@@ -2,8 +2,8 @@ const fs = require('fs');
 const path = require('path');
 
 const homeHandler = (request, response) => {
-	const filePath = path.join(__dirname, '/../public/index.html');
-	const html = fs.readFile(filePath, (error, file) => {
+	const filePath = path.join(__dirname, '..', 'public', 'index.html');
+	fs.readFile(filePath, (error, file) => {
 		if (error) {
 			response.writeHead(500, { 'Content-Type': 'text/html' });
 			response.end('<h1>server Error</h1>');
@@ -16,21 +16,21 @@ const homeHandler = (request, response) => {
 
 const searchHandler = (request, response, url) => {
 	let searchLang = url.split('=')[1];
-	const filePath = path.join(__dirname, './', 'data/db.json');
+	const filePath = path.join(__dirname, 'data', 'db.json');
 	fs.readFile(filePath, 'utf-8', (err, file) => {
 		if (err) console.log(err);
 		else if (searchLang.length > 0) {
 			response.writeHead(200, { 'Content-Type': 'application/json' });
-			let allLang = JSON.parse(file);
-			const filterLang = [];
-			const firstLetter = searchLang[0].toUpperCase();
-			searchLang = firstLetter + searchLang.slice(1);
-			allLang.forEach((element) => {
-				if (element.name.indexOf(searchLang) === 0) {
-					filterLang.push(element);
-				}
+			const allLang = JSON.parse(file);
+
+			const capitalizedFirstLetter = searchLang[0].toUpperCase();
+			searchLang = capitalizedFirstLetter + searchLang.slice(1);
+			console.log('search', searchLang);
+			const filteredLanguages = allLang.filter((element) => {
+				return element.name.indexOf(searchLang) === 0;
 			});
-			response.end(JSON.stringify(filterLang));
+			console.log(filteredLanguages);
+			response.end(JSON.stringify(filteredLanguages));
 		} else {
 			response.writeHead(200, { 'Content-Type': 'application/json' });
 			response.end(JSON.stringify(''));
@@ -48,14 +48,13 @@ const publicHandler = (request, response, url) => {
 		png: 'image/png',
 		ico: 'image/x-icon'
 	};
-	const filePath = path.join(__dirname, '../public', url);
+	const filePath = path.join(__dirname, '..', 'public', url);
+
 	fs.readFile(filePath, (error, file) => {
 		if (error) {
 			response.writeHead(500, { 'Content-Type': 'text/html' });
 			response.end('<h1>this is error message should be</h1>');
 		} else {
-			console.log('extensionType', extension);
-
 			response.writeHead(200, { 'Content-Type': extensionType[extension] });
 			response.end(file);
 		}
