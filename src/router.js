@@ -9,6 +9,9 @@ const router = (request, response) => {
     searchHandler(request, response, url);
   } else if (url.includes("public")) {
     publicHandler(request, response, url);
+  } else {
+    response.writeHead(404, { "Content-Type": "text/html" });
+    response.end("<h1>404 page not found!</h1>");
   }
 };
 module.exports = router;
