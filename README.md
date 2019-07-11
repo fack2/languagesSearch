@@ -2,10 +2,8 @@
 
     Fourth project with GSG-fake 2.
     the puprpose of it is auto complete text of languages which store in json file .
+    click the icon to visit the website [:mag:](https://language-search.herokuapp.com)
 
-## Website:
-[languages-search](https://language-search.herokuapp.com)
-[:mag:](https://language-search.herokuapp.com)
 
 ## User journey
 
