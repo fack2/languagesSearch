@@ -1,14 +1,15 @@
 ## languagesSearch :mag:
 
-    Fourth project with GSG-fake 2.
-    the puprpose of it is auto complete text of languages which store in json file .
-    click the icon to visit the website [:mag:](https://language-search.herokuapp.com)
+   Fourth project with GSG-fake 2.
+   the puprpose of it is auto complete text of languages which store in json file .
+   click the icon to visit the website [:mag:](https://language-search.herokuapp.com)
 
 
 ## User journey
 
-    - as a user im able to search language
-    - as a user im able to see short auto completed  list
+   - as a user im able to search language.
+   - as a user im able to see short auto completed  list.
+   - as a user im able to choose a language and the welcome message will  be translated.
   
 ## File structure
 - public
