@@ -30,7 +30,7 @@ const translateWelcomeMesseage = () => {
 };
 
 searchBox.addEventListener('keyup', () => {
-	var inputValue = searchBox.value;
+	const inputValue = searchBox.value;
 	request(`/search=${inputValue}`, (enteredLanguage) => {
 		const langList = document.getElementById('langList');
 		langList.innerHTML = '';

@@ -25,11 +25,9 @@ const searchHandler = (request, response, url) => {
 
 			const capitalizedFirstLetter = searchLang[0].toUpperCase();
 			searchLang = capitalizedFirstLetter + searchLang.slice(1);
-			console.log('search', searchLang);
 			const filteredLanguages = allLang.filter((element) => {
 				return element.name.indexOf(searchLang) === 0;
 			});
-			console.log(filteredLanguages);
 			response.end(JSON.stringify(filteredLanguages));
 		} else {
 			response.writeHead(200, { 'Content-Type': 'application/json' });
