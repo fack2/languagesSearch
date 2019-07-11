@@ -5,9 +5,9 @@ const router = (request, response) => {
 
   if (url === "/") {
     homeHandler(request, response);
-  } else if (url.indexOf("/search=") !== -1) {
+  } else if (url.includes("/search=")) {
     searchHandler(request, response, url);
-  }else if (url.indexOf(".") !== -1) {
+  } else if (url.includes("public")) {
     publicHandler(request, response, url);
   }
 };
